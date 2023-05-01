@@ -6,13 +6,14 @@
 
 .DropDownContainer .DropDownHeader {
   margin-bottom: 5px;
-  padding: 0.4em 2em 0.4em 1em;
+  padding: 0.5em;
   border: solid grey 1px;
   border-radius: 5px;
   font-weight: 300;
   font-size: 20px;
   color: #131923;
   background: #ffffff;
+  width: fit-content;
 }
 
 .DropDownContainer .DropDownHeader:active,
@@ -32,6 +33,7 @@ ul.DropDownList {
   max-height: 240px;
   overflow: scroll;
   margin: 0;
+  width: fit-content;
 }
 
 ul.DropDownList:hover {
@@ -39,17 +41,35 @@ ul.DropDownList:hover {
 }
 
 ul.DropDownList:first-child {
-  padding-top: 20px;
+  padding-top: 10px;
+}
+ul.DropDownList:last-child {
+  padding-bottom: 0px;
+  border-bottom: 1px solid grey;
 }
 
 .ListItem {
   list-style: none;
-  margin-bottom: 18px;
-  border-bottom: 2px solid #e5e5e5;
+  margin-bottom: 0px;
+  padding: 5px;
+}
+.ListItem::after {
+  content: "";
+  display: block;
+  border-bottom: 1px solid grey;
+  padding-bottom: 5px;
+  width: 140%;
+  margin-left: -15px;
+}
+.ListItem:last-child:after {
+  content: "";
+  display: block;
+  border-bottom: none;
 }
 
 .ListItem:hover {
-  background-color: blue;
-  color: white;
+  background-color: rgba(146, 218, 242, 0.65);
+  color: black;
   cursor: pointer;
+  padding: 5px;
 }
