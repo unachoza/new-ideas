@@ -1,0 +1,55 @@
+.DropDownContainer {
+  width: 115px;
+  margin: 0 10px;
+  height: 100px;
+}
+
+.DropDownContainer .DropDownHeader {
+  margin-bottom: 5px;
+  padding: 0.4em 2em 0.4em 1em;
+  border: solid grey 1px;
+  border-radius: 5px;
+  font-weight: 300;
+  font-size: 20px;
+  color: #131923;
+  background: #ffffff;
+}
+
+.DropDownContainer .DropDownHeader:active,
+.DropDownContainer .DropDownHeader:focus {
+  border: solid blue;
+}
+
+ul.DropDownList {
+  background: #ffffff;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: black;
+  font-size: 1.3rem;
+  font-weight: 300;
+  padding: 10px 10px;
+  max-height: 240px;
+  overflow: scroll;
+  margin: 0;
+}
+
+ul.DropDownList:hover {
+  cursor: pointer;
+}
+
+ul.DropDownList:first-child {
+  padding-top: 20px;
+}
+
+.ListItem {
+  list-style: none;
+  margin-bottom: 18px;
+  border-bottom: 2px solid #e5e5e5;
+}
+
+.ListItem:hover {
+  background-color: blue;
+  color: white;
+  cursor: pointer;
+}
