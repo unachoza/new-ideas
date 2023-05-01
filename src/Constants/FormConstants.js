@@ -20,15 +20,27 @@ export const CATEGORIES = [
   },
   {
     label: "Expense",
+    value: "Coffee",
+  },
+  {
+    label: "Expense",
     value: "Food",
   },
   {
     label: "Expense",
-    value: "Clothes",
+    value: "Dinning Out",
+  },
+  {
+    label: "Expense",
+    value: "Food Delivery",
   },
   {
     label: "Expense",
     value: "Entertainment",
+  },
+  {
+    label: "Expense",
+    value: "Clothes",
   },
   {
     label: "Expense",
@@ -45,5 +57,33 @@ export const CATEGORIES = [
   {
     label: "Expense",
     value: "Pets",
+  },
+  {
+    label: "Income",
+    value: "Salary",
+  },
+  {
+    label: "Income",
+    value: "Savings",
+  },
+  {
+    label: "Income",
+    value: "Investments",
+  },
+  {
+    label: "Income",
+    value: "Gifts",
+  },
+  {
+    label: "Income",
+    value: "Rental Income",
+  },
+  {
+    label: "Income",
+    value: "Business",
+  },
+  {
+    label: "Income",
+    value: "Deposits",
   },
 ];

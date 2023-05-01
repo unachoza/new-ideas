@@ -1,6 +1,6 @@
 .form-content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   width: 25vw;
   height: fit-content;
   /* border: solid grey; */
