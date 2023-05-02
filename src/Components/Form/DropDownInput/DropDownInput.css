@@ -13,7 +13,7 @@
   font-size: 20px;
   color: #131923;
   background: #ffffff;
-  min-width: 100px;
+  min-width: 150px;
   min-height: 20px;
   width: fit-content;
 }
@@ -37,6 +37,8 @@ ul.DropDownList {
   margin: 0;
   width: fit-content;
   padding: 5px;
+  position: relative;
+  z-index: 100;
 }
 
 ul.DropDownList:hover {
@@ -55,6 +57,8 @@ ul.DropDownList:last-child {
   list-style: none;
   margin-bottom: 0px;
   padding: 5px;
+  position: relative;
+  z-index: 100;
 }
 .ListItem::after {
   content: "";

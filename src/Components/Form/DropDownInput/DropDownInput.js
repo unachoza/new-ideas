@@ -1,14 +1,15 @@
 import { useState } from "react";
 import "./DropDownInput.css";
 
-export default function DropDownInput({ values }) {
+export default function DropDownInput({ name, values, formValues, setFormValues }) {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState(null);
   const toggling = () => {
     setIsOpen(!isOpen);
   };
-  const onOptionClicked = (value) => {
-    setSelectedOption(value);
+  const onOptionClicked = ({ innerHTML }) => {
+    setFormValues({ ...formValues, [name]: innerHTML });
+    setSelectedOption(innerHTML);
     setIsOpen(false);
   };
 
@@ -22,17 +23,16 @@ export default function DropDownInput({ values }) {
         {isOpen && (
           <div className="DropDownListContainer">
             <ul className="DropDownList">
-              {values.map((value, i) => {
-                console.log({ value });
+              {values.map(({ value, label }, i) => {
                 return (
                   <li
                     key={i}
-                    id={value.label}
-                    value={value.value}
+                    id={label}
+                    value={value}
                     className="ListItem"
-                    onClick={() => onOptionClicked(value.value)}
+                    onClick={(e) => onOptionClicked(e.currentTarget)}
                   >
-                    {value.value}
+                    {value}
                   </li>
                 );
               })}

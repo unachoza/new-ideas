@@ -1,7 +1,9 @@
 .form-content {
   display: flex;
   flex-direction: row;
-  width: 25vw;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 30vw;
   height: fit-content;
   /* border: solid grey; */
   border-radius: 3px;
