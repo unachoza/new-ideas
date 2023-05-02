@@ -1,4 +1,4 @@
-export const TYPE = [
+export const TRANSACTION = [
   {
     label: "Expense",
     value: "Expense",
