@@ -21,9 +21,7 @@ export default function Form() {
     }
     return incomeSum;
   };
-  const historyTotal = useMemo(() => {
-    return howMuchInHistoryIsTotal();
-  });
+  const historyTotal = useMemo(() => howMuchInHistoryIsTotal());
   const handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
     setFormValues({
@@ -38,17 +36,10 @@ export default function Form() {
   const createDefaultDate = () => {
     if (formValues.date === "") {
       const date = new Date();
-
       let currentDay = String(date.getDate()).padStart(2, "0");
-
       let currentMonth = String(date.getMonth() + 1).padStart(2, "0");
-
       let currentYear = date.getFullYear();
-
-      // we will display the date as DD-MM-YYYY
-
       let currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
-
       setFormValues({
         ...formValues,
         date: currentDate,
@@ -85,29 +76,37 @@ export default function Form() {
       } else {
         subtractTotal(currentTotal, numbericValue);
       }
+    } else {
+      console.log("from empty");
     }
   };
   return (
     <>
-      <div className="form-content">
-        <DropDownInput name="transaction" values={TRANSACTION} formValues={formValues} setFormValues={setFormValues} />
-        <DropDownInput name="category" values={CATEGORIES} formValues={formValues} setFormValues={setFormValues} />
-        <TextInput type="text" name="amount" label="amount" setFormValues={handleInputChange} />
-        <TextInput
-          type="date"
-          name="date"
-          label="date"
-          setFormValues={handleInputChange}
-          dates={{ min: "2023-05-01" }}
-        />
+      <div className="form">
+        <div className="form-content">
+          <DropDownInput
+            name="transaction"
+            values={TRANSACTION}
+            formValues={formValues}
+            setFormValues={setFormValues}
+          />
+          <DropDownInput name="category" values={CATEGORIES} formValues={formValues} setFormValues={setFormValues} />
+          <TextInput type="text" name="amount" label="amount" setFormValues={handleInputChange} />
+          <TextInput
+            type="date"
+            name="date"
+            label="date"
+            setFormValues={handleInputChange}
+            dates={{ min: "2023-05-01" }}
+          />
+        </div>
+        <Button text="Create Transaction" onClick={() => handleSubmit(formValues)} />
+        <div>
+          <h5>Income: {income}</h5>
+          <h5>Expense: {expense}</h5>
+          <h5>Total: {currentTotal}</h5>
+        </div>
       </div>
-      <Button text="Create Transaction" onClick={() => handleSubmit(formValues)} />
-      <>
-        <h1>Income: {income}</h1>
-        <h1>Expense: {expense}</h1>
-        <h1>Total: {currentTotal}</h1>
-        <h1>historyTotal: {historyTotal}</h1>
-      </>
     </>
   );
 }

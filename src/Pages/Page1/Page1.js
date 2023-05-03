@@ -1,6 +1,7 @@
 import "./Page1.css";
 import "../Page.css";
 import TransactionProvider from "../../Context/TransactionContext";
+import TransactionHistory from "../../Features/TransactionHistory/TransactionHistory";
 import Button from "../../Components/UI/Button/Button";
 import Form from "../../Components/Form/Form";
 
@@ -15,6 +16,7 @@ export default function Page1({ navigate }) {
           {/* <Chart title="Income" /> */}
           <Form />
           {/* <Chart title="Expenses" /> */}
+          <TransactionHistory />
         </div>
         <div className="footer">
           <div>The first page of what could very possibly be many pages. The Future is unknown.</div>

@@ -14,7 +14,7 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   height: 8vh;
-  position: absolute;
+  position: fixed;
   background-color: #ce9d9db8;
 }
 a {

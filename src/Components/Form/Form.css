@@ -18,3 +18,12 @@ input[type="text"]:focus {
   outline: 2px solid lightblue;
   border: none;
 }
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 44%;
+  padding: 0.5rem 1.8rem;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
