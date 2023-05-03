@@ -1,14 +1,13 @@
-import { useState, useContext } from "react";
-import { FormContext } from "../../Context/FormContext";
+import { useState } from "react";
 import TextInput from "./Inputs/TextInput";
 import DropDownInput from "./DropDownInput/DropDownInput";
 import Button from "../Button/Button";
-import { useForm } from "../../Hooks/useForm";
 import { TRANSACTION, CATEGORIES } from "../../Constants/FormConstants";
 import "./Form.css";
 
 export default function Form() {
   const [formValues, setFormValues] = useState({ transaction: "", category: "", amount: "", date: "" });
+  const [currentTotal, setCurrentTotal] = useState(0);
 
   const handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
@@ -18,6 +17,30 @@ export default function Form() {
     });
   };
 
+  const addTotal = (currentTotal, newValue) => {
+    currentTotal += newValue;
+    setCurrentTotal(currentTotal);
+    calcIncomePercent(currentTotal, newValue);
+    return currentTotal;
+  };
+  const subtractTotal = (currentTotal, newValue) => {
+    currentTotal -= newValue;
+    setCurrentTotal(currentTotal);
+  };
+
+  const calcIncomePercent = (currentTotal, newValue) => {
+    const newValuePercent = newValue / currentTotal;
+    console.log({ newValuePercent });
+  };
+
+  const handleSubmit = ({ amount, transaction }) => {
+    const numbericValue = parseInt(amount);
+    if (transaction === "Income") {
+      addTotal(currentTotal, numbericValue);
+    } else {
+      subtractTotal(currentTotal, numbericValue);
+    }
+  };
   return (
     <>
       <div className="form-content">
@@ -32,7 +55,8 @@ export default function Form() {
           dates={{ min: "2023-05-01" }}
         />
       </div>
-      <Button text="Submit" onClick={() => console.log("form submitted", { formValues })} />
+      <Button text="Create Transaction" onClick={() => handleSubmit(formValues)} />
+      {currentTotal > 0 && <h1>Total: {currentTotal}</h1>}
     </>
   );
 }
