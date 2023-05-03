@@ -1,5 +1,5 @@
 import "./IndexPage.css";
-import Button from "../Components/Button/Button";
+import Button from "../Components/UI/Button/Button";
 
 export default function IndexPage({ navigate }) {
   return (

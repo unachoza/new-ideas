@@ -5,7 +5,7 @@ import Page2 from "./Pages/Page2/Page2.js";
 import Page3 from "./Pages/Page3/Page3.js";
 import Page4 from "./Pages/Page4/Page4.js";
 import Layout from "./Layout.js";
-import LoadSpinner from "./Components/LoadingSpinner/LoadingSpinner.js";
+import LoadSpinner from "./Components/UI/LoadingSpinner/LoadingSpinner.js";
 import "./App.css";
 
 export default function App() {
