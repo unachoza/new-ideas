@@ -22,6 +22,7 @@ export default function Form() {
     return incomeSum;
   };
   const historyTotal = useMemo(() => howMuchInHistoryIsTotal());
+
   const handleInputChange = (e) => {
     const { name, value } = e.currentTarget;
     setFormValues({
@@ -31,7 +32,7 @@ export default function Form() {
   };
   const doesFormHaveData = () => {
     const { transaction, category, amount } = formValues;
-    if (transaction === "" || category === "" || amount === "") return false;
+    return transaction === "" || category === "" || amount === "" ? false : true;
   };
   const createDefaultDate = () => {
     if (formValues.date === "") {
@@ -67,7 +68,7 @@ export default function Form() {
   };
 
   const handleSubmit = ({ amount, transaction }) => {
-    if (!doesFormHaveData()) {
+    if (doesFormHaveData()) {
       createDefaultDate();
       const numbericValue = parseInt(amount);
       setTransactions([...transactions, formValues]);
@@ -76,8 +77,6 @@ export default function Form() {
       } else {
         subtractTotal(currentTotal, numbericValue);
       }
-    } else {
-      console.log("from empty");
     }
   };
   return (
