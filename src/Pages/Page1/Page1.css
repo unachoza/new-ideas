@@ -1,0 +1,5 @@
+#charts-page {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 200px;
+}
