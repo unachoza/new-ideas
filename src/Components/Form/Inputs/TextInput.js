@@ -5,9 +5,7 @@ export default function TextInput({ type, name, label, placeholder, setFormValue
   const [currentValue, setCurrentValue] = useState("");
 
   const handleChange = (e) => {
-    console.log(e.currentTarget);
     const { value } = e.currentTarget;
-    console.log(value);
     setCurrentValue(value);
   };
   return (

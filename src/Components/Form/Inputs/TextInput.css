@@ -1,15 +1,17 @@
 .text-input-container {
-  width: 150px;
+  width: 44%;
   margin: 0 10px;
   font-size: 20px;
 }
 input[type="text"] {
   font-size: 20px;
-  min-width: 80px;
+  min-width: 100%;
   min-height: 40px;
+  max-width: 172px;
 }
 input[type="date"] {
   font-size: 20px;
-  min-width: 80px;
+  min-width: 100%;
   min-height: 40px;
+  max-width: 172px;
 }
