@@ -1,11 +1,12 @@
 .DropDownContainer {
-  width: 115px;
+  width: 44%;
   margin: 0 10px;
   height: 100px;
 }
 
 .DropDownContainer .DropDownHeader {
   margin-bottom: 5px;
+  margin-right: 0;
   padding: 0.5em;
   border: solid grey 1px;
   border-radius: 5px;
@@ -13,14 +14,18 @@
   font-size: 20px;
   color: #131923;
   background: #ffffff;
-  min-width: 150px;
+  min-width: 90%;
   min-height: 20px;
-  width: fit-content;
+}
+.DropDownListContainer {
+  width: 98;
+  padding: 0;
 }
 
 .DropDownContainer .DropDownHeader:active,
 .DropDownContainer .DropDownHeader:focus {
-  border: solid blue;
+  /* border: solid red;
+  min-width: 90%; */
 }
 
 ul.DropDownList {
@@ -32,13 +37,13 @@ ul.DropDownList {
   font-size: 1.3rem;
   font-weight: 300;
   padding: 10px 10px;
-  max-height: 240px;
+  max-height: 60vh;
   overflow: scroll;
   margin: 0;
-  width: fit-content;
   padding: 5px;
   position: relative;
   z-index: 100;
+  min-: 100%;
 }
 
 ul.DropDownList:hover {

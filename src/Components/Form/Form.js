@@ -83,6 +83,7 @@ export default function Form() {
   return (
     <>
       <div className="form">
+        <div>Enter Transaction</div>
         <div className="form-content">
           <DropDownInput
             name="transaction"
@@ -91,14 +92,8 @@ export default function Form() {
             setFormValues={setFormValues}
           />
           <DropDownInput name="category" values={CATEGORIES} formValues={formValues} setFormValues={setFormValues} />
-          <TextInput type="text" name="amount" label="amount" setFormValues={handleInputChange} />
-          <TextInput
-            type="date"
-            name="date"
-            label="date"
-            setFormValues={handleInputChange}
-            dates={{ min: "2023-05-01" }}
-          />
+          <TextInput type="text" name="amount" placeholder="amount" setFormValues={handleInputChange} />
+          <TextInput type="date" name="date" setFormValues={handleInputChange} dates={{ min: "2023-05-01" }} />
         </div>
         <Button text="Create Transaction" onClick={() => handleSubmit(formValues)} />
         <div>
