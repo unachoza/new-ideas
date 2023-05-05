@@ -47,7 +47,6 @@ interface DonutSliceWithCommands extends DonutSlice {
 
 export const getSlicesWithCommandsAndOffsets = (donutSlices, radius, svgSize, borderSize): DonutSliceWithCommands[] => {
   let previousPercent = 0;
-  console.log({ donutSlices });
   return donutSlices.map((slice) => {
     const sliceWithCommands: DonutSliceWithCommands = {
       ...slice,
@@ -93,7 +92,6 @@ export const getSlicesWithCommandsAndOffsets = (donutSlices, radius, svgSize, bo
 */
 
 const getSliceCommands = (donutSlice, radius, svgSize, borderSize) => {
-  console.log("anotherone", donutSlice, radius, svgSize, borderSize);
   const degrees = percentToDegrees(donutSlice.percent);
   const longPathFlag = degrees > 180 ? 1 : 0;
   const innerRadius = radius - borderSize;
