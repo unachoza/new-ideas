@@ -1,33 +1,36 @@
-import { useState, useRef, useEffect } from "react";
-import { select } from "d3";
+import { useState, useRef, useContext } from "react";
+import { TransactionContext } from "../../Context/TransactionContext";
 import Button from "../UI/Button/Button";
+import Donut from "./Donut/Donut";
 import "./Chart.css";
 
-export default function Chart(options, size) {
-  const [data, setData] = useState([2, 5, 10]);
+const normalizeChartData = ({ category, amount }) => {
+  return {
+    id: category,
+    percent: amount / 5,
+    color: `rgb(95, 133, ${amount})`,
+    label: category,
+    amount: amount,
+  };
+};
+
+export default function Chart() {
+  const { transactions, setTransactions } = useContext(TransactionContext);
+
+  let donuts = [];
+  transactions.forEach((trans) => {
+    donuts.push(normalizeChartData(trans));
+  });
+
+  const [data, setData] = useState(donuts);
   const svgRef = useRef();
 
-  useEffect(() => {
-    const svg = select(svgRef.current);
-    svg
-      .selectAll("circle")
-      .data(data)
-      .join("circle")
-      .attr("r", (value) => value)
-      .attr("cx", (value) => value * 2)
-      .attr("cy", (value) => value * 5)
-      .attr("stroke", "blue")
-      .attr("stroke-width", "4")
-      .attr("fill", "none");
-  }, [data]);
   return (
     <>
-      <div className="content" style={{ scale: size }}>
-        <svg ref={svgRef}></svg>
-        <br />
-        <Button text="update" onClick={() => setData(data.map((value) => value * 2))} />
-        <Button text="filter" onClick={() => setData(data.filter((value) => value > 10))} />
-      </div>
+      {data ? <Donut data={data} /> : <h6>No Data Yet</h6>}
+      <br />
+      <Button text="update" onClick={() => setData(data.map((value) => value * 2))} />
+      <Button text="filter" onClick={() => setData(data.filter((value) => value > 10))} />
     </>
   );
 }
