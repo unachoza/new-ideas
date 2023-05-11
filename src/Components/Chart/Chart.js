@@ -1,36 +1,39 @@
-import { useState, useRef, useContext } from "react";
+import {  useContext } from "react";
 import { TransactionContext } from "../../Context/TransactionContext";
-import Button from "../UI/Button/Button";
-import Donut from "./Donut/Donut";
 import "./Chart.css";
+import DonutD3 from './Donut/DonutD3'
 
 const normalizeChartData = ({ category, amount }) => {
   return {
-    id: category,
-    percent: amount / 5,
-    color: `rgb(95, 133, ${amount})`,
-    label: category,
-    amount: amount,
+    // id: category,
+    // percent: amount / 5,
+    // color: `rgb(95, 133, ${amount})`,
+    // label: category,
+    // amount: amount,
+    name: category, 
+    value: amount
   };
 };
 
 export default function Chart() {
   const { transactions, setTransactions } = useContext(TransactionContext);
 
-  let donuts = [];
+  let donutsI = [];
+  let donutsE = []
   transactions.forEach((trans) => {
-    donuts.push(normalizeChartData(trans));
+    if (trans.transaction === "Income") {
+    donutsI.push(normalizeChartData(trans));
+    } else {
+       donutsE.push(normalizeChartData(trans));
+    }
   });
-
-  const [data, setData] = useState(donuts);
-  const svgRef = useRef();
-
+   if (donutsE) {
+    return  <DonutD3 data={donutsE} width={300} height={400} />
+    
+  }
   return (
     <>
-      {data ? <Donut data={data} /> : <h6>No Data Yet</h6>}
-      <br />
-      <Button text="update" onClick={() => setData(data.map((value) => value * 2))} />
-      <Button text="filter" onClick={() => setData(data.filter((value) => value > 10))} />
+      <h6>No Data Yet</h6>
     </>
   );
 }
