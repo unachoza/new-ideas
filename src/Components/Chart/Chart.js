@@ -1,6 +1,5 @@
 import {  useContext } from "react";
 import { TransactionContext } from "../../Context/TransactionContext";
-import "./Chart.css";
 import DonutD3 from './Donut/DonutD3'
 
 const normalizeChartData = ({ category, amount }) => {

@@ -13,14 +13,29 @@ import * as d3 from "d3";
 
 const MARGIN = 30;
 
-const colors = [
-  "#e0ac2b",
-  "#e85252",
-  "#6689c6",
-  "#9a6fb0",
-  "#a53253",
-  "#69b3a2",
-];
+// const colors = [
+//   "#e0ac2b",
+//   "#e85252",
+//   "#6689c6",
+//   "#9a6fb0",
+//   "#a53253",
+//   "#69b3a2",
+// ];
+
+const randomRed = () => {
+	// let newRed = (Math.floor(Math.random() * 200))
+	// const currentRed = "rgb(210, 43, 43)"
+	let r; let g; let b; let c
+	r = (Math.floor(Math.random() *30)) +200
+	console.log(r)
+	b = (Math.floor(Math.random() *30)) +200
+	c = (Math.floor(Math.random() *30)) +200
+	let rgbColor = `rbg(${r}, ${b}, ${c})`
+	console.log(rgbColor)
+	return rgbColor
+}
+const colors = [randomRed(), randomRed(), randomRed()]
+console.log({colors})
 
 export default function DonutChart({width, height, data}) {
     const radius = Math.min(width, height) / 2 - MARGIN;

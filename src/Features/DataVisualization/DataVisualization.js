@@ -6,7 +6,6 @@ import Chart from "../../Components/Chart/Chart";
 export default function DataVisualization() {
   const { transactions, setTransactions } = useContext(TransactionContext);
 
-  console.log("from vis page", { transactions });
   const calcIncomePercent = (currentTotal, newValue) => {
     const newValuePercent = newValue / currentTotal;
     console.log("P", { newValuePercent });

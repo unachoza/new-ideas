@@ -5,7 +5,6 @@ import { TransactionContext } from "../../Context/TransactionContext";
 
 export default function TransactionHistory() {
   const { transactions, setTransactions } = useContext(TransactionContext);
-  console.log("from history page", transactions);
   const mappedTransaction = transactions.map(({ transaction, category, amount, date }, i) => {
     return (
       <div

@@ -95,7 +95,7 @@ export default function Form() {
           <TextInput type="date" name="date" setFormValues={handleInputChange} dates={{ min: "2023-05-01" }} />
         </div>
         <Button text="Create Transaction" onClick={() => handleSubmit(formValues)} />
-        <div>
+        <div className="totals-footer">
           <h5>Income: {income}</h5>
           <h5>Expense: {expense}</h5>
           <h5>Total: {currentTotal}</h5>
